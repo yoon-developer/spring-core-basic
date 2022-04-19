@@ -1,14 +1,16 @@
 package com.spring.coreprinciples;
 
+import com.spring.coreprinciples.config.AppConfig;
 import com.spring.coreprinciples.member.Grade;
 import com.spring.coreprinciples.member.Member;
 import com.spring.coreprinciples.member.MemberService;
-import com.spring.coreprinciples.member.MemberServiceImpl;
 
 public class MemberApp {
 
   public static void main(String[] args) {
-    MemberService memberService = new MemberServiceImpl();
+    AppConfig appConfig = new AppConfig();
+
+    MemberService memberService = appConfig.memberService();
 
     Member memberA = new Member(1L, "memberA", Grade.VIP);
     memberService.join(memberA);
