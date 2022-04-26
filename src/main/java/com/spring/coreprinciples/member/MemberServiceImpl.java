@@ -1,17 +1,23 @@
 package com.spring.coreprinciples.member;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class MemberServiceImpl implements MemberService {
 
   private final MemberRepository memberRepository;
 
-  @Autowired
+  /**
+   * 1. 생성자가 1개만 있을 경우 @Autowired 생략 가능
+   * 2. lombok 사용시 생성자 생략 가능
+   */
+/*
   public MemberServiceImpl(MemberRepository memberRepository) {
     this.memberRepository = memberRepository;
   }
+*/
 
   //테스트 용도
   public MemberRepository getMemberRepository() {
